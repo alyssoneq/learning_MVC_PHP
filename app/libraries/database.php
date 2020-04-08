@@ -39,4 +39,58 @@
 			 echo $this->error;
 		 }
 	 }
+	 
+	 // Method to prepare statements
+	 public function query($sql){
+		 $this->stmt = $this->dbh->prepare($sql);
+	 }
+	 
+	 // Method to bind values
+	 public function bind($param, $value, $type = null){
+		 if(is_null($type)){
+			 switch(true){
+				 case is_int($value):
+					$type = PDO::PARAM_INT;
+					break;
+				 case is_bool($value):
+					$type = PDO::PARAM_BOOL;
+					break;
+				 case is_null($value):
+					$type = PDO::PARAM_NULL;
+					break;
+				 default:
+					$type = PDO::PARAM_STR;
+			 }
+		 }
+		 
+		 $this->stmt->bindValue($param, $value, $type);
+	 }
+	 
+	 // Method to execute the prepared statement
+	 public function execute(){
+		 //inside this method is called the PDO function execute()
+		 return $this->stmt->execute();
+	 }
+	 
+	 // Method to get result set as array of object
+	 public function resultSet(){
+		 //calling the method execute()
+		 $this->execute();
+		 // the attribute PDO::FETCH_OBJ makes the fetch as an array of objects
+		 return $this->stmt->fetchAll(PDO::FETCH_OBJ);
+	 }
+	 
+	 // Method to get a single row as array of objects
+	 public function single(){
+		 //calling the method execute()
+		 $this->execute();
+		 // the PDO function fetch() call only a single row
+		 return $this->stmt->fetch(PDO::FETCH_OBJ);
+	 }
+	 
+	 // Method to count the number of rows
+	 public function rowCount(){
+		 // rowCount() is PDO function
+		 return $this->stmt->rowCount();
+	 }
  }

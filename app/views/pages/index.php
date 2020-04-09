@@ -6,3 +6,5 @@ require APPROOT . '/views/inc/header.php'; ?>
 	<p> This is the MVC PHP framework. Please refer to the docs on how to use it </p>
 	
 <?php require APPROOT . '/views/inc/footer.php';?>
+
+testando git branch

@@ -14,7 +14,7 @@
 			
 			
 			$data = [
-				'title' => 'Welcome'
+				'title' => 'SharePosts'
 			];
 			$this->view('pages/index' , $data);
 		}

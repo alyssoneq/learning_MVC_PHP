@@ -11,7 +11,10 @@ define('DB_NAME','shareposts');
 define ('APPROOT',dirname(dirname(__FILE__)));
 
 // URL root
-define ('URLROOT', '_YOUR_URL_');
+define ('URLROOT', 'http://localhost/mvc_class');
 
 // Site name
-define ('SITENAME' , 'http://localhost/mvc_class');
+define ('SITENAME' , 'My Site');
+
+// App Version
+define('APPVERSION', '1.0.0');

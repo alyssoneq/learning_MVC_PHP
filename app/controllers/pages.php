@@ -6,7 +6,10 @@
 		}
 		
 		public function about(){
-			$data = ['title' => 'About Us'];
+			$data = [
+				'title' => 'About Us',
+				'description' => 'App to share feelings with other users'
+				];
 			$this->view('pages/about' , $data);
 		}
 		
@@ -14,7 +17,8 @@
 			
 			
 			$data = [
-				'title' => 'SharePosts'
+				'title' => 'SharePosts',
+				'description' => 'Simple social network built on the app framework'
 			];
 			$this->view('pages/index' , $data);
 		}

@@ -1,7 +1,10 @@
 <?php 
 
 	class Users extends Controller {
-		public function __construct(){}
+		public function __construct(){
+			// Checks model folder for file called user.php 
+			$this->userModel = $this->model('user');
+		}
 		
 		// Method to load the register form 
 		// This also handles the data submission 
@@ -30,6 +33,11 @@
 				// Validate email 
 				if(empty($data['email'])){
 					$data['email_err'] = 'Please enter email';
+				}else{
+					// Check if email exists on database
+					if ($this->userModel->findUserByEmail($data['email'])){
+						$data['email_err'] = 'Email already taken';
+					}
 				}
 				//Validate name
 				if(empty($data['name'])){

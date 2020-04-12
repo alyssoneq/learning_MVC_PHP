@@ -2,16 +2,12 @@
 	<div class='row'>
 		<div class='col-md-6 mx-auto'>
 			<div class='card card-body bg-light mt-5'>
-				<h2> Create an account </h2>
-				<p> Please fill out this form to register </p>
+				<h2> Login </h2>
+				<p> Please login with your credentials </p>
 				
 				<!-- The action attribute receives the url -->
-				<form action="<?php echo URLROOT; ?>/users/register" method="post">
-					<div class="form-group">
-						<label for="name"> Name: <sup>*</sup></label>
-						<input type="text" name="name" class="form-control form-control-lg <?php echo (!empty($data['name_err']))? 'is-invalid' : ''; ?>" value="<?php echo $data['name'];?>">
-						<span class="invalid-feedback"> <?php echo $data['name_err'];?> </span>
-					</div>
+				<form action="<?php echo URLROOT; ?>/users/login" method="post">
+				
 					<div class="form-group">
 						<label for="email"> Email: <sup>*</sup></label>
 						<input type="email" name="email" class="form-control form-control-lg <?php echo (!empty($data['email_err']))? 'is-invalid' : ''; ?>" value="<?php echo $data['email'];?>">
@@ -22,18 +18,13 @@
 						<input type="password" name="password" class="form-control form-control-lg <?php echo (!empty($data['password_err']))? 'is-invalid' : ''; ?>" value="<?php echo $data['password'];?>">
 						<span class="invalid-feedback"> <?php echo $data['password_err'];?> </span>
 					</div>
-					<div class="form-group">
-						<label for="confirm_password"> Confirm password: <sup>*</sup></label>
-						<input type="password" name="confirm_password" class="form-control form-control-lg <?php echo (!empty($data['confirm_password_err']))? 'is-invalid' : ''; ?>" value="<?php echo $data['confirm_password'];?>">
-						<span class="invalid-feedback"> <?php echo $data['confirm_password_err'];?> </span>
-					</div>
 					
 					<div class="row">
 						<div class="col">
-							<input type='submit' value='Register' class='btn btn-success btn-block'>
+							<input type='submit' value='Login' class='btn btn-success btn-block'>
 						</div>
 						<div class='col'>
-							<a href='<?php echo URLROOT; ?>/users/login' class='btn btn-light btn-block' > Have an account? Login here </a>
+							<a href='<?php echo URLROOT; ?>/users/register' class='btn btn-light btn-block' > Don't have an account? Register here </a>
 						</div>
 					</div>
 				</form>

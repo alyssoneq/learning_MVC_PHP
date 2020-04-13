@@ -17,12 +17,21 @@
 	
 	<!-- ml-auto makes list float to the left -->
 	<ul class="navbar-nav ml-auto">
+	
+	<!-- logged in view --> 
+	<?php if(isset($_SESSION['user_id'])): ?>
+	  <li class="nav-item">
+        <a class="nav-link" href="<?php echo URLROOT;?>/users/logout"> Logout </a>
+      </li>
+	<!-- logged out view --> 
+	<?php else :?>
       <li class="nav-item">
         <a class="nav-link" href="<?php echo URLROOT;?>/users/register"> Register </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="<?php echo URLROOT;?>/users/login">Login</a>
       </li>
+	<?php endif; ?>
     </ul>
   </div>
  </div>

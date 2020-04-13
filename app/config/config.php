@@ -1,4 +1,6 @@
 <?php 
+// This page is loaded in the bootstrap.php file
+
 // Database params
 define('DB_HOST','localhost');
 define('DB_USER','root');

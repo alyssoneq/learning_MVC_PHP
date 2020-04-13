@@ -2,6 +2,8 @@
 	<div class='row'>
 		<div class='col-md-6 mx-auto'>
 			<div class='card card-body bg-light mt-5'>
+				<!-- displaying the flash message to inform successful registration -->
+				<?php flash('register_success'); ?>
 				<h2> Login </h2>
 				<p> Please login with your credentials </p>
 				

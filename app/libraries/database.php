@@ -80,7 +80,10 @@
 		 return $this->stmt->fetchAll(PDO::FETCH_OBJ);
 	 }
 	 
-	 // Method to get a single row as array of objects
+	 // Method to get a single row of content as an array of objects
+	 // The PDO::FETCH_OBJ allows this to happen
+	 // By using this, we can have a code like
+	 // echo $x->password; - Access content as an object
 	 public function single(){
 		 //calling the method execute()
 		 $this->execute();

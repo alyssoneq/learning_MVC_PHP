@@ -25,9 +25,30 @@
 			
 		}
 		
+		// Login user 
+		public function login($email , $password){
+			// Making the query 
+			$stmt = 'SELECT * FROM users WHERE email = :email';
+			$this->db->query($stmt);
+			
+			// Bind value for the named param
+			$this->db->bind(':email' , $email );
+			
+			// Getting the user row on the database
+			$row = $this->db->single();
+			
+			// Getting the hashed password from the database 
+			$hashed_password = $row->password;
+			if(password_verify($password, $hashed_password)){
+				return $row;
+			}else{
+				return false;
+			}
+		}
+		
 		// Find user by email
 		public function findUserByEmail($email){
-			$stmt = 'SELECT *FROM users WHERE email = :email';
+			$stmt = 'SELECT * FROM users WHERE email = :email';
 			// Calling the query method from the Database class  
 			$this->db->query($stmt);
 			

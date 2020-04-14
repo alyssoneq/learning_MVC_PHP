@@ -14,8 +14,12 @@
 		}
 		
 		public function index(){
+			// If user is logged in index redirects to posts view 
+			if(isLoggedIn){
+				redirect('posts');
+			}
 			
-			
+			// If user is not logged in loads index page 
 			$data = [
 				'title' => 'SharePosts',
 				'description' => 'Simple social network built on the app framework'

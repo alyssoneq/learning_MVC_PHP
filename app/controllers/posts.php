@@ -21,4 +21,14 @@
 			
 			$this->view('posts/index' , $data);
 		}
+		
+		// Method to access from to add posts to the database
+		public function add(){
+			$data =[
+				'title' => '',
+				'body' => ''
+			];
+			
+			$this->view('posts/add' , $data);
+		}
 	}

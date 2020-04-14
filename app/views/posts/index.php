@@ -1,6 +1,7 @@
 <?php
 // For any document inside app folder use APPROOT 
 require APPROOT . '/views/inc/header.php'; ?>
+	<?php flash('post_message');?>
 	<div class = 'row mb-3'>
 		<div class='col-md-6'>
 			<h1> POSTS </h1>

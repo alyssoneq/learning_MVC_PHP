@@ -30,4 +30,23 @@
 			
 			return $results;
 		}
+		
+		// Method to insert post into the database 
+		public function addPost($data){
+			// Create sql statement
+			$stmt = 'INSERT INTO posts (title, user_id, body) VALUES(:title, :user_id, :body)';
+			// Make the query
+			$this->db->query($stmt);
+			// Bind values
+			$this->db->bind(':title',$data['title']);
+			$this->db->bind(':user_id',$data['user_id']);
+			$this->db->bind(':body',$data['body']);
+			
+			//Execute the query 
+			if($this->db->execute()){
+				return true;
+			}else{
+				return false;
+			}
+		}
 	}

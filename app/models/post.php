@@ -1,5 +1,6 @@
 <?php 
-
+// Post model
+// This code handles all the database communication related to posts
 	class Post{
 		// Property to receive the database instantiated
 		private $db;
@@ -49,4 +50,19 @@
 				return false;
 			}
 		}
+		
+		// Method to fetch the content of a post based on the post id
+		public function getPostById($id){
+			// Make the sql statement 
+			$stmt = 'SELECT * FROM posts WHERE id = :id';
+			// Make the query 
+			$this->db->query($stmt);
+			// Bind the values 
+			$this->db->bind(':id', $id);
+			// Get the values from the database 
+			$row = $this->db->single();
+			
+			return $row;
+		}
+		
 	}

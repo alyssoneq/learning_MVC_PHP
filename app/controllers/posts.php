@@ -9,6 +9,7 @@
 			}
 			
 			$this->postModel = $this->model('Post');
+			$this->userModel = $this->model('User');
 		}
 		
 		// Method to load index view
@@ -71,5 +72,19 @@
 			
 				$this->view('posts/add' , $data);
 			}
+		}
+		
+		// Method to show details of a post 
+		public function show($id){
+			// Get post content from the database 
+			$post = $this->postModel->getPostById($id);
+			$user = $this->userModel->getUserById($post->user_id);
+			
+			$data = [
+				'post' => $post,
+				'user' => $user
+			];
+			
+			$this->view('posts/show', $data);
 		}
 	}

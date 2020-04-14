@@ -66,4 +66,21 @@
 				return false;
 			}
 		}
+		
+		// Method to get user info by id
+		public function getUserById($id){
+			$stmt = 'SELECT * FROM users WHERE id = :id';
+			// Calling the query method from the Database class  
+			$this->db->query($stmt);
+			
+			// Binding the email value to the input
+			$this->db->bind(':id',$id);
+			
+			// Getting the value from the database 
+			// Method single from Database class was used for this
+			$row = $this->db->single();
+			
+			// Returning the values retrieved from the database
+			return $row;
+		}
 	}

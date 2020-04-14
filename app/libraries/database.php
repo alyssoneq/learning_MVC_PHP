@@ -73,6 +73,7 @@
 	 }
 	 
 	 // Method to get result set as array of object
+	 // This method will get more than one row of content
 	 public function resultSet(){
 		 //calling the method execute()
 		 $this->execute();

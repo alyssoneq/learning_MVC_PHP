@@ -84,4 +84,20 @@
 			return $row;
 		}
 		
+		// Method to delete post from its id
+		public function deletePost($id){
+			// Create sql statement
+			$stmt = 'DELETE FROM posts WHERE id = :id';
+			// Make the query
+			$this->db->query($stmt);
+			// Bind values
+			$this->db->bind(':id',$id);
+			
+			//Execute the query 
+			if($this->db->execute()){
+				return true;
+			}else{
+				return false;
+			}
+		}
 	}

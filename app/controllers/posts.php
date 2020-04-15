@@ -148,4 +148,29 @@
 			
 			$this->view('posts/show', $data);
 		}
+		
+		// Method to delete post 
+		public function delete($id){
+			// This should always be a post request 
+			if($_SERVER['REQUEST_METHOD'] == 'POST'){
+				// Get existing post from model
+				$post = $this->postModel->getPostById($id);
+				
+				// Check if user is the owner
+				if($post->user_id != $_SESSION['user_id']){
+					redirect('posts');
+				}
+				
+				// Calling the model to delete the post
+				if($this->postModel->deletePost($id)){
+					flash('post_message','Post Removed');
+					redirect('posts');
+				}else{
+					die('Something went wrong');
+				}
+			}else{
+				redirect('posts');
+			}
+			
+		}
 	}

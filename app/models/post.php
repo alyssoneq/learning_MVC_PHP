@@ -51,6 +51,25 @@
 			}
 		}
 		
+		// Method to edit a post from the database 
+		public function updatePost($data){
+			// Create sql statement
+			$stmt = 'UPDATE posts SET title = :title, body = :body WHERE id = :id';
+			// Make the query
+			$this->db->query($stmt);
+			// Bind values
+			$this->db->bind(':title',$data['title']);
+			$this->db->bind(':id',$data['id']);
+			$this->db->bind(':body',$data['body']);
+			
+			//Execute the query 
+			if($this->db->execute()){
+				return true;
+			}else{
+				return false;
+			}
+		}
+		
 		// Method to fetch the content of a post based on the post id
 		public function getPostById($id){
 			// Make the sql statement 
